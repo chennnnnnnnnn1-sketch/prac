@@ -90,7 +90,7 @@ The YOLOv8 fire detection model used in this project was custom-trained on a lar
    - A **reactive navigation algorithm** selects movement direction based on the safest available path to avoid collisions,  where actions are selected directly from current sensor readings.
 
 5. **Motor Control**
-Navigation commands are sent to the L298N motor driver, which controls the speed and direction of the DC motors.
+   - Navigation commands are sent to the L298N motor driver, which controls the speed and direction of the DC motors.
 
 ### Decision Flow
 ```
@@ -164,13 +164,13 @@ START
 The robot operates through a hierarchical control system composed of three functional layers:
 
 **1. Perception Layer (AI Vision)**
- The Raspberry Pi Camera captures real-time video frames, which are processed by a YOLOv8-based model to detect fire and output its location and confidence level.
+   - The Raspberry Pi Camera captures real-time video frames, which are processed by a YOLOv8-based model to detect fire and output its location and confidence level.
  
 **2. Decision Layer (Navigation Logic)**
- Detection results determine the robot’s behavior: fire detection triggers response actions, while the absence of fire enables autonomous patrol. Ultrasonic sensors provide obstacle distance data, and movement decisions are made using a reactive navigation algorithm based on current sensor readings.
+   - Detection results determine the robot’s behavior: fire detection triggers response actions, while the absence of fire enables autonomous patrol. Ultrasonic sensors provide obstacle distance data, and movement decisions are made using a reactive navigation algorithm based on current sensor readings.
  
 **3. Actuation Layer (Motor Control)**
- Control signals are sent to the L298N motor driver, which regulates the speed and direction of the dual DC motors. A buzzer is activated upon confirmed fire detection.
+   - Control signals are sent to the L298N motor driver, which regulates the speed and direction of the dual DC motors. A buzzer is activated upon confirmed fire detection.
  
  ### Hardware Connection Diagram
 
