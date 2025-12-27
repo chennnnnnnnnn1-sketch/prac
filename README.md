@@ -43,6 +43,8 @@ While the current prototype focuses on **fire detection and alerting**, the plat
 ### AI Model Training 
 The YOLOv8 fire detection model used in this project was custom-trained on a large-scale dataset sourced and augmented using Roboflow. The training process involved approximately **90,000 labeled images**, ensuring detection performance across different fire scenarios.
 
+![Train AI](https://github.com/chennnnnnnnnn1-sketch/prac/blob/6c77ac3903cd75644c8a2062296cae8866cc8701/Images(System%20Overview)/Train.jpg)
+
 ---
 
 
@@ -62,8 +64,33 @@ The YOLOv8 fire detection model used in this project was custom-trained on a lar
 
 ### System Overview
 
-![System Block Diagram](images/block_diagram.png)
+![System Block Diagram](https://github.com/chennnnnnnnnn1-sketch/prac/blob/6c77ac3903cd75644c8a2062296cae8866cc8701/Images(System%20Overview)/Block%20Diagram.png)
 
+### Explanation of System Flow
+
+1. **Visual Input**
+   - The Raspberry Pi Camera continuously captures real-time video frames.
+
+2. **AI Fire Detection**
+   - The YOLOv8 model processes each frame to detect fire.
+   - The model outputs:
+     - Fire presence
+     - Location within the frame
+     - Detection confidence
+
+3. **Decision Logic**
+   - If fire is detected:
+     - Motors are stopped permanently.
+     - LED and buzzer alerts are activated.
+   - If no fire is detected:
+     - The robot continues autonomous patrol.
+
+4. **Autonomous Navigation**
+   - Ultrasonic sensors measure distances in front, left, and right directions.
+   - A **reactive navigation algorithm** selects movement direction based on the safest available path to avoid collisions,  where actions are selected directly from current sensor readings.
+
+5. **Motor Control**
+Navigation commands are sent to the L298N motor driver, which controls the speed and direction of the DC motors.
 
 ### Decision Flow
 ```
@@ -132,6 +159,39 @@ START
   │    │
   │    └── Loop Continues Until Program Exit
 ```
+### Architecture Summary
+
+The robot operates through a hierarchical control system composed of three functional layers:
+
+**1. Perception Layer (AI Vision)**
+ The Raspberry Pi Camera captures real-time video frames, which are processed by a YOLOv8-based model to detect fire and output its location and confidence level.
+ 
+**2. Decision Layer (Navigation Logic)**
+ Detection results determine the robot’s behavior: fire detection triggers response actions, while the absence of fire enables autonomous patrol. Ultrasonic sensors provide obstacle distance data, and movement decisions are made using a reactive navigation algorithm based on current sensor readings.
+ 
+**3. Actuation Layer (Motor Control)**
+ Control signals are sent to the L298N motor driver, which regulates the speed and direction of the dual DC motors. A buzzer is activated upon confirmed fire detection.
+ 
+ ### Hardware Connection Diagram
+
+![Hardware Wiring Diagram](https://github.com/chennnnnnnnnn1-sketch/prac/blob/6c77ac3903cd75644c8a2062296cae8866cc8701/Images(System%20Overview)/Hardware1.png)
+![Hardware Wiring Diagram2](https://github.com/chennnnnnnnnn1-sketch/prac/blob/6c77ac3903cd75644c8a2062296cae8866cc8701/Images(System%20Overview)/Hardware2.png)
+
+---
+
+## V. Demo Video
+
+**Project Demonstration Video:**  
+[https://drive.google.com/drive/folders/1KSm3b3iA9x8Bc7Q_tuIk2D1e1PB_W2c7?usp=drive_link]
+
+The demo showcases:
+- Autonomous navigation
+- Real-time AI fire detection
+- Alert activation upon fire detection
+- Live monitoring via RealVNC Viewer
+
+
+
 
 
 
