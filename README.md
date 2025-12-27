@@ -17,7 +17,7 @@ While the current prototype focuses on **fire detection and alerting**, the plat
 
 | Component | Model/Specification | Purpose |
 |-----------|-------------------|---------|
-| **Main Controller** | Raspberry Pi 4 Model B (4GB RAM) | AI processing, motor control, sensor integration |
+| **Main Controller** | Raspberry Pi 4 Model B (8GB RAM) | AI processing, motor control, sensor integration |
 | **Camera** | Raspberry Pi Camera Module V2 (8MP) | Real-time video capture for fire detection |
 | **Motor Driver** | L298N Dual H-Bridge | Controls DC motor direction and speed |
 | **Motors** | 2× DC Geared Motors (6V, 200 RPM) | Robot locomotion |
